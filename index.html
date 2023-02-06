@@ -48,7 +48,6 @@
         </div>
         <button class="btn-signup modal-btn">je m'inscris</button>
       </div>
-      <p id="display"></p>
       <div class="bground">
         <div class="content">
           <span class="close"></span>
@@ -59,6 +58,7 @@
               action="index.html"
               method="get"
               onSubmit="return validate();"
+              novalidate
             >
               <div class="formData">
                 <label>Prénom</label><br />
@@ -69,6 +69,7 @@
                   name="first"
                   minlength="2"
                 /><br />
+                <span class="error" id="errorFirst"></span>
               </div>
               <div class="formData">
                 <label>Nom</label><br />
@@ -78,6 +79,7 @@
                   id="last"
                   name="last"
                 /><br />
+                <span class="error" id="errorLast"></span>
               </div>
               <div class="formData">
                 <label>E-mail</label><br />
@@ -87,6 +89,7 @@
                   id="email"
                   name="email"
                 /><br />
+                <span class="error" id="errorEmail"></span>
               </div>
               <div class="formData">
                 <label>Date de naissance</label><br />
@@ -96,6 +99,7 @@
                   id="birthdate"
                   name="birthdate"
                 /><br />
+                <span class="error" id="errorBirth"></span>
               </div>
               <div class="formData">
                 <label
@@ -110,11 +114,13 @@
                   min="0"
                   max="99"
                 />
+                <span class="error" id="errorQuantity"></span>
               </div>
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData">
+              <span class="error" id="errorLocation"></span>
+              <div class="formData" id="locations">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -195,6 +201,7 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br />
+                <span class="error" id="errorCheckbox"></span>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -212,11 +219,14 @@
           </div>
         </div>
       </div>
+      <div class="modalSuccess" id="modalSucces">
+        Merci ! <br />Votre réservation à été reçue.
+        <span class="close" id="close"></span>
+      </div>
     </main>
     <footer>
       <p class="copyrights">Copyright 2014 - 2022, GameOn Inc.</p>
     </footer>
-    <script src="main.js"></script>
     <script src="modal.js"></script>
   </body>
 </html>
