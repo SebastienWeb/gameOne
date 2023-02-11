@@ -26,23 +26,23 @@ function closeNav() {
   modalbg.style.display = "none";
 }
 
-const modalSucces = document.getElementById("modalSucces");
 const close = document.getElementById("close");
 close.addEventListener("click", closeNavSucces);
 function closeNavSucces() {
   modalSucces.style.display = "none";
 }
 function modalValidation() {
-  const modalSucces = document.getElementById("modalSucces");
+  const modalSucces = document.querySelector("#modalSucces");
   modalSucces.style.display = "block";
+  modalbg.style.display = "none";
 }
 
 function error(message) {
   return message;
 }
 function validedFirstName() {
-  const firstName = document.getElementById("first");
-  const errorFirst = document.getElementById("errorFirst");
+  const firstName = document.querySelector("#first");
+  const errorFirst = document.querySelector("#errorFirst");
   if (firstName.value === "") {
     errorFirst.innerText = error("Champs Obligatoire");
     return false;
@@ -54,8 +54,8 @@ function validedFirstName() {
   }
 }
 function validatedLast() {
-  const lastName = document.getElementById("last");
-  const errorLast = document.getElementById("errorLast");
+  const lastName = document.querySelector("#last");
+  const errorLast = document.querySelector("#errorLast");
   if (lastName.value === "") {
     errorLast.innerText = error("Champs Obligatoire");
     return false;
@@ -67,8 +67,8 @@ function validatedLast() {
   }
 }
 function validatedBirthDay() {
-  const birthDay = document.getElementById("birthdate");
-  const errorBirth = document.getElementById("errorBirth");
+  const birthDay = document.querySelector("#birthdate");
+  const errorBirth = document.querySelector("#errorBirth");
   if (birthDay.value === "") {
     errorBirth.innerText = error("Vous devez entrer votre date de naissance.");
     return false;
@@ -77,8 +77,8 @@ function validatedBirthDay() {
   }
 }
 function validatedCheckBoxCondition() {
-  const checkbox1 = document.getElementById("checkbox1");
-  const errorCheckbox = document.getElementById("errorCheckbox");
+  const checkbox1 = document.querySelector("#checkbox1");
+  const errorCheckbox = document.querySelector("#errorCheckbox");
   if (checkbox1.checked === false) {
     errorCheckbox.innerText = error(
       "Vous devez vérifier que vous acceptez les termes et conditions."
@@ -90,7 +90,7 @@ function validatedCheckBoxCondition() {
 }
 function valitedLocations() {
   const locations = document.querySelectorAll("#locations .checkbox-input");
-  const errorLocation = document.getElementById("errorLocation");
+  const errorLocation = document.querySelector("#errorLocation");
   for (let i = 0; i < locations.length; i++) {
     if (locations[i].checked) {
       return true;
@@ -100,9 +100,9 @@ function valitedLocations() {
   return false;
 }
 function valitedEmail() {
-  const email = document.getElementById("email");
+  const email = document.querySelector("#email");
   const regexEmail = /.+\@.+\..+/;
-  const errorEmail = document.getElementById("errorEmail");
+  const errorEmail = document.querySelector("#errorEmail");
   if (email.value.trim().match(regexEmail)) {
     return true;
   }
@@ -110,8 +110,8 @@ function valitedEmail() {
   return false;
 }
 function valitedTournament() {
-  const quantity = document.getElementById("quantity");
-  const errorQuantity = document.getElementById("errorQuantity");
+  const quantity = document.querySelector("#quantity");
+  const errorQuantity = document.querySelector("#errorQuantity");
   if (
     quantity.value.trim().length === 0 ||
     quantity.value.trim() < 0 ||
@@ -122,7 +122,6 @@ function valitedTournament() {
   }
   return true;
 }
-
 // function validate
 function validate() {
   return (
@@ -135,3 +134,12 @@ function validate() {
     validatedCheckBoxCondition()
   );
 }
+const form = document.getElementById("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (validate() == true) {
+    modalValidation();
+  } else {
+    return false;
+  }
+});
