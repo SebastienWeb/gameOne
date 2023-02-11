@@ -554,5 +554,12 @@ footer {
 }
 .contentSuccess {
   padding: 24px 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 740px;
+  height: 340px;
+}
+.containerSuccess h2 {
+  margin-bottom: 64px;
 }

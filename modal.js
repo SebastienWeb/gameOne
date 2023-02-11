@@ -25,9 +25,8 @@ function launchModal() {
 function closeNav() {
   modalbg.style.display = "none";
 }
-
-const close = document.getElementById("close");
-close.addEventListener("click", closeNavSucces);
+const close = document.querySelectorAll("#close");
+close.forEach((closed) => closed.addEventListener("click", closeNavSucces));
 function closeNavSucces() {
   modalSucces.style.display = "none";
 }
