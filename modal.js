@@ -29,6 +29,7 @@ const close = document.querySelectorAll("#close");
 close.forEach((closed) => closed.addEventListener("click", closeNavSucces));
 function closeNavSucces() {
   modalSucces.style.display = "none";
+  location.reload();
 }
 function modalValidation() {
   const modalSucces = document.querySelector("#modalSucces");
@@ -49,6 +50,7 @@ function validedFirstName() {
     errorFirst.innerText = error("Veuillez entrer 2 caractères ou plus");
     return false;
   } else {
+    errorFirst.innerText = error("");
     return true;
   }
 }
@@ -62,6 +64,7 @@ function validatedLast() {
     errorLast.innerText = error("Veuillez entrer 2 caractères ou plus");
     return false;
   } else {
+    errorLast.innerText = error("");
     return true;
   }
 }
@@ -72,6 +75,7 @@ function validatedBirthDay() {
     errorBirth.innerText = error("Vous devez entrer votre date de naissance.");
     return false;
   } else {
+    errorBirth.innerText = error("");
     return true;
   }
 }
@@ -84,6 +88,7 @@ function validatedCheckBoxCondition() {
     );
     return false;
   } else {
+    errorCheckbox.innerText = error("");
     return true;
   }
 }
@@ -92,6 +97,7 @@ function valitedLocations() {
   const errorLocation = document.querySelector("#errorLocation");
   for (let i = 0; i < locations.length; i++) {
     if (locations[i].checked) {
+      errorLocation.innerText = error("");
       return true;
     }
   }
@@ -103,6 +109,7 @@ function valitedEmail() {
   const regexEmail = /.+\@.+\..+/;
   const errorEmail = document.querySelector("#errorEmail");
   if (email.value.trim().match(regexEmail)) {
+    errorEmail.innerText = error("");
     return true;
   }
   errorEmail.innerText = error("Email non valide");
@@ -119,6 +126,7 @@ function valitedTournament() {
     errorQuantity.innerText = error("Veuillez saisir une quantité valide");
     return false;
   }
+  errorQuantity.innerText = error("");
   return true;
 }
 // function validate
