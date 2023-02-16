@@ -21,25 +21,28 @@ modalCloseBtn.addEventListener("click", closeNav);
 function launchModal() {
   modalbg.style.display = "block";
 }
-
+// Fermeture de la nav
 function closeNav() {
   modalbg.style.display = "none";
 }
 const close = document.querySelectorAll("#close");
 close.forEach((closed) => closed.addEventListener("click", closeNavSucces));
+// Fermeture de la modal de sucess
 function closeNavSucces() {
   modalSucces.style.display = "none";
   location.reload();
 }
+// Modal de succès
 function modalValidation() {
   const modalSucces = document.querySelector("#modalSucces");
   modalSucces.style.display = "block";
   modalbg.style.display = "none";
 }
-
+// Function générique pour génèrer les erreurs
 function error(message) {
   return message;
 }
+// Function qui valide le firstname
 function validedFirstName() {
   const firstName = document.querySelector("#first");
   const errorFirst = document.querySelector("#errorFirst");
@@ -54,6 +57,7 @@ function validedFirstName() {
     return true;
   }
 }
+// Function qui valide le lastname
 function validatedLast() {
   const lastName = document.querySelector("#last");
   const errorLast = document.querySelector("#errorLast");
@@ -68,6 +72,7 @@ function validatedLast() {
     return true;
   }
 }
+// Function qui valide le birtday
 function validatedBirthDay() {
   const birthDay = document.querySelector("#birthdate");
   const errorBirth = document.querySelector("#errorBirth");
@@ -79,6 +84,7 @@ function validatedBirthDay() {
     return true;
   }
 }
+// Function qui valide les conditions d'utilisations
 function validatedCheckBoxCondition() {
   const checkbox1 = document.querySelector("#checkbox1");
   const errorCheckbox = document.querySelector("#errorCheckbox");
@@ -92,6 +98,7 @@ function validatedCheckBoxCondition() {
     return true;
   }
 }
+// Function qui valide les locations
 function valitedLocations() {
   const locations = document.querySelectorAll("#locations .checkbox-input");
   const errorLocation = document.querySelector("#errorLocation");
@@ -104,6 +111,7 @@ function valitedLocations() {
   errorLocation.innerText = error("Vous devez choisir une option");
   return false;
 }
+// Function qui valide l'email
 function valitedEmail() {
   const email = document.querySelector("#email");
   const regexEmail = /.+\@.+\..+/;
@@ -115,6 +123,7 @@ function valitedEmail() {
   errorEmail.innerText = error("Email non valide");
   return false;
 }
+// Function qui valide le nombre de tournois
 function valitedTournament() {
   const quantity = document.querySelector("#quantity");
   const errorQuantity = document.querySelector("#errorQuantity");
@@ -129,7 +138,7 @@ function valitedTournament() {
   errorQuantity.innerText = error("");
   return true;
 }
-// function validate
+// function validate qui vérifie si tout est à true pour submit
 function validate() {
   return (
     validedFirstName() &&
@@ -142,6 +151,7 @@ function validate() {
   );
 }
 const form = document.getElementById("form");
+// event au click de soumission pour permettre de valider si tout est à true pour afficher la modal de success
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validate() == true) {
